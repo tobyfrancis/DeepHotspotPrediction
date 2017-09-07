@@ -1,4 +1,4 @@
-# Deep Hotspot Prediction with Hypercolumn Voxelwise Features
+# Deep Hotspot Prediction with Hypercolumn Features
 
 This is a repository of tools and notebooks which showcase deep learning for hotspot prediction.
 The main insights gained from such an approach are in the corresponding analysis of how and what the networks learns.
