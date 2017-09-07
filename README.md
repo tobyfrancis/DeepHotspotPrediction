@@ -3,6 +3,9 @@
 This is a repository of tools and notebooks which showcase deep learning for hotspot prediction.
 The main insights gained from such an approach are in the corresponding analysis of how and what the networks learn.
 
+This repository requires a 'data' folder in the working directory, containing the CSV files for the different microstructures. 
+At publication time, this will be made available using Dropbox or Google Drive (presumably, for reproducability).
+
 ## ToDo:
 1. A notebook showcasing a simple 2D Hypercolumn/PixelNet approach to the hotspot-grain and Von Mises stress prediction tasks.
 2. A notebook showcasing the analysis of these networks - visualization of principle components and tSNE of the feature maps.
