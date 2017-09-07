@@ -1,7 +1,7 @@
 # Deep Hotspot Prediction with Hypercolumn Features
 
 This is a repository of tools and notebooks which showcase deep learning for hotspot prediction.
-The main insights gained from such an approach are in the corresponding analysis of how and what the networks learns.
+The main insights gained from such an approach are in the corresponding analysis of how and what the networks learn.
 
 ## ToDo:
 1. A notebook showcasing a simple 2D Hypercolumn/PixelNet approach to the hotspot-grain and Von Mises stress prediction tasks.
