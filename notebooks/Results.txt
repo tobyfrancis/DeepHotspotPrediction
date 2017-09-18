@@ -1,0 +1,48 @@
+Net 1:
+
+    def orientation_net(optimizer,frequencies=[1,9]):
+        inputs = Input(shape=(80,80,4))
+        fmap_list = []
+        fdim = 4
+
+        X = Conv2D(fdim,(3,3),padding='same')(inputs)
+        X = BatchNormalization()(X)
+        X = LeakyReLU(alpha=0.3)(X)
+        fmap_list.append(X)
+        X = MaxPooling2D((2,2),padding='same')(X)
+        X = Conv2D(fdim,(3,3),padding='same')(X)
+        X = BatchNormalization()(X)
+        X = LeakyReLU(alpha=0.3)(X)
+        fmap_list.append(X)
+        X = MaxPooling2D((2,2),padding='same')(X)
+        X = Conv2D(fdim,(3,3),padding='same')(X)
+        X = BatchNormalization()(X)
+        X = LeakyReLU(alpha=0.3)(X)
+        fmap_list.append(X)
+        X = MaxPooling2D((2,2),padding='same')(X)
+        X = Conv2D(fdim,(3,3),padding='same')(X)
+        X = BatchNormalization()(X)
+        X = LeakyReLU(alpha=0.3)(X)
+        fmap_list.append(X)
+        X = MaxPooling2D((2,2),padding='same')(X)
+        X = Conv2D(fdim,(3,3),padding='same')(X)
+        X = BatchNormalization()(X)
+        X = LeakyReLU(alpha=0.3)(X)
+        fmap_list.append(X)
+
+        hypercolumns = Lambda(upsample,output_shape=upsample_shape)(fmap_list)
+        x = Reshape((80*80,fdim*5))(hypercolumns)
+        x = Dropout(0.25)(x)
+        x = Dense(32)(x)
+        x = BatchNormalization()(x)
+        x = LeakyReLU(alpha=0.3)(x)
+        hotspots = Dense(1,activation='sigmoid')(x)
+        model = Model(inputs=inputs,outputs=hotspots)
+        model.compile(optimizer=optimizer,loss='binary_crossentropy')
+        return model
+        
+LR: 1e-4
+Decay: 1e-5
+Results: 
+CE: 0.68
+Visually: Bad
